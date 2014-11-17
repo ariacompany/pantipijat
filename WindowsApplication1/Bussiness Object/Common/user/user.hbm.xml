@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="WindowsApplication1"
+                  namespace="BussinessObject.Common"
+                  auto-import="true">
+  <class name="User" table="user">-->
+<!--<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="false">
+  <class name="WindowsApplication1.BussinessObject.Common.User,WindowsApplication1" table="user">-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common">
+  <class name="User" table="user">
+    <id name="eiduser" column="iduser" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="eusername" column="username" type="String" length="50" />
+
+    <property name="epass" column="pass" type="String" length="50" />
+    <property name="enama" column="nama" type="String" length="50" />
+
+    <property name="ealamat" column="alamat" type="String" length="100" />
+    <property name="ekomisi" column="komisi" type="Int32" length="3" />
+
+    <property name="enoktp" column="noktp" type="String" length="30" />
+    <property name="ejeniskelamin" column="jeniskelamin" type="Char"/>
+
+    <property name="etelepon" column="telepon" type="String" length="30" />
+    <property name="eagama" column="agama" type="String" length="30" />
+
+    <property name="eisdelete" column="isdelete" type="Boolean"/>
+    <many-to-one name="eidjabatan" column="idjabatan" class="Jabatan" not-null="false" />
+    <!--<property name="eidjabatan" column="idjabatan" type="integer" length="11" />-->
+
+  </class>
+</hibernate-mapping>

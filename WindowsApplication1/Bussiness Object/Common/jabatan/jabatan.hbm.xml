@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="false">
+  <class name="WindowsApplication1.BussinessObject.Common.Jabatan,WindowsApplication1" table="jabatan">-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="Jabatan" table="jabatan">
+    <id name="eidjabatan" column="idjabatan" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="enamajabatan" column="namajabatan" type="String" length="50" />
+    <property name="ekomisijabatan" column="komisijabatan" type="Int32" length="4" />
+    <property name="eisdelete" column="isdelete" type="Boolean"/>
+    <set name="euser" inverse="true" lazy="false" cascade="all">
+      <key column="idjabatan" />
+      <one-to-many class="User" />
+    </set>
+    <set name="ejabatanmenu" inverse="true" lazy="false" cascade="all" Table="jabatan_menu">
+      <key column="idjabatan" />
+      <one-to-many class="JabatanMenu" />
+    </set>
+  </class>
+</hibernate-mapping>

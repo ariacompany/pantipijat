@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common">
+  <class name="Booking" table="booking">
+    <id name="eidbooking" column="idbooking" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="etglbooking" column="tglbooking" type="Date" />
+
+    <property name="einfo" column="info" type="String" length="500" />
+    <property name="eisdelete" column="isdelete" type="Boolean" />
+  </class>
+</hibernate-mapping>
+  

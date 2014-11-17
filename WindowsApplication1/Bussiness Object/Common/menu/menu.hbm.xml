@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="Menu" table="menu">
+    <id name="eidmenu" column="idmenu" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="enamamenu" column="namamenu" type="String" length="45"/>
+    <property name="eisdelete" column="isdelete" type="Boolean"/>
+    <set name="ejabatanmenu" inverse="true" lazy="false" cascade="all" Table="jabatan_menu">
+      <key column="idmenu" />
+      <one-to-many class="JabatanMenu" />
+    </set>
+  </class>
+</hibernate-mapping>

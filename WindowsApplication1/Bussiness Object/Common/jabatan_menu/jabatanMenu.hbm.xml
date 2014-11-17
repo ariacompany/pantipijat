@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="JabatanMenu" table="jabatan_menu">
+    <composite-id name="CompositeId" class="JabatanMenuId">
+      <key-property name="eidjabatan" column="idjabatan" type="Int32">
+        <generator class="foreign" />
+      </key-property>
+      <key-property name="eidmenu" column="idmenu" type="Int32">
+        <generator class="foreign" />
+      </key-property>
+    </composite-id>
+
+    <many-to-one name="eidjabatanset" column="idjabatan" class="Jabatan"  not-null="true" />
+    <many-to-one name="eidmenuset" column="idmenu" class="Menu"  not-null="true"/>
+
+  </class>
+</hibernate-mapping>

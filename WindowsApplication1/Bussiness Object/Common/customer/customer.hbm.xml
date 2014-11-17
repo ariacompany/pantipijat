@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common">
+  <class name="Customer" table="customer">
+    <id name="eidcustomer" column="idcustomer" type="Int32">
+      <generator class="identity" />
+    </id>
+  <property name="enama" column="nama" type="String" length="50" />
+  <property name="ealamat" column="alamat" type="String" length="100" />
+  <property name="etelp" column="telp" type="String" length="30" />
+  <property name="enokartu" column="nomorkartu" type="String" length="45" />
+  <property name="ejeniskelamin" column="jeniskelamin" type="Char"/>    
+  <property name="etgllahir" column="tgllahir" type="Date"/>
+  <property name="eaktif" column="aktif" type="Boolean" />
+  <property name="eisdelete" column="isdelete" type="Boolean"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="PaketPenjualan" table="paket_penjualan">
+    <composite-id name="CompositeId" class="PaketPenjualanId">
+      <key-property name="eidpaket" column="idpaket" type="Int32">
+        <generator class="foreign" />
+      </key-property>
+      <key-property name="eidpenjualan" column="idpenjualan" type="Int32">
+        <generator class="foreign" />
+      </key-property>
+    </composite-id>
+    <property name="eharga" type="Decimal" column="harga"/>
+    <property name="ejumlah" type="Int32" column="jumlah" length="11"/>
+
+    <many-to-one name="eidpaketset" column="idpaket" class="Paket"  not-null="true" />
+    <many-to-one name="eidpenjualanset" column="idpenjualan" class="Penjualan"  not-null="true"/>
+
+  </class>
+</hibernate-mapping>

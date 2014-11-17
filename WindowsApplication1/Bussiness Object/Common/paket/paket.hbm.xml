@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="Paket" table="paket">
+    <id name="eidpaket" column="idpaket" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="enamapaket" column="namapaket" type="String" length="50"/>
+    <property name="ehargapaket" column="harga" type="Decimal"/>
+    <property name="eaktif" column="aktif" type="Boolean"/>
+    <property name="eisdelete" column="isdelete" type="Boolean"/>
+    <set name="ebarangpaket" inverse="true" lazy="false" cascade="all" Table="barang_paket">
+      <key column="idpaket" />
+      <one-to-many class="BarangPaket" />
+    </set>
+    <set name="epaketpenjualan" inverse="true" lazy="false" cascade="all" Table="paket_penjualan">
+      <key column="idpaket" />
+      <one-to-many class="PaketPenjualan" />
+    </set>
+    <set name="epakettreatment" inverse="true" lazy="false" cascade="all" Table="paket_treatment">
+      <key column="idpaket" />
+      <one-to-many class="PaketTreatment" />
+    </set>
+  </class>
+</hibernate-mapping>

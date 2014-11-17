@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="Barang" table="barang">
+    <id name="eidbarang" column="idbarang" type="Int32">
+      <generator class="identity" />
+    </id>
+    <property name="enamabarang" column="namabarang" type="String" length="100"/>
+    <property name="estokbarang" column="stokbarang" type="Int32" length="11"/>
+    <property name="einventaris" column="inventaris" type="Boolean"/>
+    <property name="ehargaperkiraan" column="hargaperkiraan" type="Decimal"/>
+    <property name="ehargajual" column="hargajual" type="Decimal"/>
+    <property name="eisdelete" column="isdelete" type="Boolean"/>
+    <set name="ebarangpaket" inverse="true" lazy="false" cascade="all" Table="barang_paket">
+      <key column="idbarang" />
+      <one-to-many class="BarangPaket" />
+    </set>
+  </class>
+</hibernate-mapping>

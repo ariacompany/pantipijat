@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WindowsApplication1" namespace="WindowsApplication1.BussinessObject.Common" default-lazy="false">
+  <class name="Treatment" table="treatment">
+    <set name="epakettreatment" inverse="true" lazy="false" cascade="all" Table="paket_treatment">
+      <key column="idtreatment" />
+      <one-to-many class="PaketTreatment" />
+    </set>
+  </class>
+</hibernate-mapping>
